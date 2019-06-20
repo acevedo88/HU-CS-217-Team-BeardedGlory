@@ -31,6 +31,7 @@ public class Calculator {
 	private static void GUI() {
 		
 		
+		
 		// new JFrame with exit option
 		JFrame frame = new JFrame("Calculator");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
