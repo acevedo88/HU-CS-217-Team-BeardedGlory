@@ -40,8 +40,6 @@ public class Calculator {
 		return (double) 0;
 	}
 	
-	//constructor
-	private Calculator() {}
 	/**
 	 * GUI creates a new JFrame object, 
 	 * creates an instance of the inner class GUI and
@@ -54,7 +52,6 @@ public class Calculator {
 		// new JFrame with exit option
 		JFrame frame = new JFrame("Calculator");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Calculator a = new Calculator();
 		// Create and add main panel
 		JPanel mainPanel = new JPanel();
 		frame.getContentPane().add(mainPanel);
@@ -98,8 +95,6 @@ public class Calculator {
 		operationPanel.setPreferredSize(new Dimension(150,495));
 		
 		operationPanel.add(equals);
-	//	equals.addActionListener(new equalButtonListener());
-		
 		
 		frame.pack();
 		frame.setVisible(true);
