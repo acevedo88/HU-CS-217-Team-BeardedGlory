@@ -1,5 +1,9 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -21,6 +25,13 @@ public class Calculator {
 
 		GUI();
 	}
+	
+	private static Double calculate() {
+		
+		
+		return (double) 0;
+	}
+	
 	
 	/**
 	 * GUI creates a new JFrame object, 
@@ -48,14 +59,32 @@ public class Calculator {
 		JPanel inputPanel = new JPanel();
 		
 		mainPanel.add(displayPanel, BorderLayout.NORTH);
-		mainPanel.add(inputPanel, BorderLayout.CENTER);
+		displayPanel.setBorder(BorderFactory.createTitledBorder(""));
 		
+		mainPanel.add(inputPanel, BorderLayout.CENTER);
+		inputPanel.setBorder(BorderFactory.createTitledBorder(""));
 		
 		
 		frame.pack();
 		frame.setVisible(true);
 		
 	} // end startGUI
+	
+	
+	
+	private class equalButtonListener implements ActionListener {
+
+		/* (non-Javadoc)
+		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+		 */
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			
+			calculate();
+			
+		}
+		
+	}
 	
 
 }
