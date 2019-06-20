@@ -1,5 +1,5 @@
 /*
- * @author Alex Acevedo TEAM BeardedGlory
+ * @author TEAM BeardedGlory
  * 
  * 
  * The Calculator class is the main class that will instantiate the GUI and 
@@ -11,7 +11,7 @@ public class Calculator {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		//Comment to test git push/pull.
+
 	}
 
 }
