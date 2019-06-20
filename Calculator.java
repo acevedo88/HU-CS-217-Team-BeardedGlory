@@ -3,6 +3,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -18,6 +19,8 @@ import javax.swing.JTextArea;
  */
 public class Calculator {
 
+	static JTextArea numberPanel;
+	
 	//fields
 	
 	public static void main(String[] args) {
@@ -54,12 +57,16 @@ public class Calculator {
 		mainPanel.setPreferredSize(new Dimension(800, 600));
 		mainPanel.setLayout(new BorderLayout());
 		
-		JTextArea numberPanel;
 		
 		JPanel displayPanel = new JPanel();
 		
 		JPanel inputPanel = new JPanel();
 		
+		JPanel buttonPanel = new JPanel();
+		
+		JPanel operationPanel = new JPanel();
+		
+		JButton equals = new JButton();
 		
 		//Display panel displays
 		mainPanel.add(displayPanel, BorderLayout.NORTH);
@@ -74,6 +81,16 @@ public class Calculator {
 		//Button panel displays
 		mainPanel.add(inputPanel, BorderLayout.CENTER);
 		inputPanel.setBorder(BorderFactory.createTitledBorder(""));
+		
+		inputPanel.add(buttonPanel);
+		buttonPanel.setPreferredSize(new Dimension(600,495));
+		buttonPanel.setBorder(BorderFactory.createTitledBorder(""));
+		
+		inputPanel.add(operationPanel,BorderLayout.EAST);
+		operationPanel.setBorder(BorderFactory.createTitledBorder(""));
+		operationPanel.setPreferredSize(new Dimension(100,495));
+		
+		operationPanel.add(equals);
 		
 		
 		frame.pack();
