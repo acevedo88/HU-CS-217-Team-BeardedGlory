@@ -2,7 +2,7 @@
  * @author Team BeardedGlory
  * 
  */
-public class Calculate {
+public class Calculate extends Calculator{
 	
 	
 
