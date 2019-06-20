@@ -65,7 +65,7 @@ public class Calculator {
 		mainPanel.add(displayPanel, BorderLayout.NORTH);
 		displayPanel.setBorder(BorderFactory.createTitledBorder(""));
 		
-		numberPanel = new JTextArea();
+		numberPanel = new JTextArea(5,65);
 		displayPanel.add(numberPanel);
 		numberPanel.setEditable(false);
 		
