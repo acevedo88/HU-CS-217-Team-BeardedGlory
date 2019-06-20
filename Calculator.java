@@ -35,7 +35,8 @@ public class Calculator {
 		return (double) 0;
 	}
 	
-	
+	//constructor
+	private Calculator() {}
 	/**
 	 * GUI creates a new JFrame object, 
 	 * creates an instance of the inner class GUI and
@@ -48,7 +49,7 @@ public class Calculator {
 		// new JFrame with exit option
 		JFrame frame = new JFrame("Calculator");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		Calculator a = new Calculator();
 		// Create and add main panel
 		JPanel mainPanel = new JPanel();
 		frame.getContentPane().add(mainPanel);
@@ -83,14 +84,15 @@ public class Calculator {
 		inputPanel.setBorder(BorderFactory.createTitledBorder(""));
 		
 		inputPanel.add(buttonPanel);
-		buttonPanel.setPreferredSize(new Dimension(600,495));
+		buttonPanel.setPreferredSize(new Dimension(620,495));
 		buttonPanel.setBorder(BorderFactory.createTitledBorder(""));
 		
 		inputPanel.add(operationPanel,BorderLayout.EAST);
 		operationPanel.setBorder(BorderFactory.createTitledBorder(""));
-		operationPanel.setPreferredSize(new Dimension(100,495));
+		operationPanel.setPreferredSize(new Dimension(150,495));
 		
 		operationPanel.add(equals);
+	//	equals.addActionListener(new equalButtonListener());
 		
 		
 		frame.pack();
