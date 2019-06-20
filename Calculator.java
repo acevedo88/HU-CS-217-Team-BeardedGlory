@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 
 /*
@@ -53,13 +54,24 @@ public class Calculator {
 		mainPanel.setPreferredSize(new Dimension(800, 600));
 		mainPanel.setLayout(new BorderLayout());
 		
+		JTextArea numberPanel;
+		
 		JPanel displayPanel = new JPanel();
 		
 		JPanel inputPanel = new JPanel();
 		
+		
+		//Display panel displays
 		mainPanel.add(displayPanel, BorderLayout.NORTH);
 		displayPanel.setBorder(BorderFactory.createTitledBorder(""));
 		
+		numberPanel = new JTextArea();
+		displayPanel.add(numberPanel);
+		numberPanel.setEditable(false);
+		
+		
+		
+		//Button panel displays
 		mainPanel.add(inputPanel, BorderLayout.CENTER);
 		inputPanel.setBorder(BorderFactory.createTitledBorder(""));
 		
