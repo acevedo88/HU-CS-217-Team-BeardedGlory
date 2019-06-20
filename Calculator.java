@@ -12,6 +12,7 @@ public class Calculator {
 		// TODO Auto-generated method stub
 
 		//Comment to test git push/pull.
+		// Test comment
 	}
 
 }
