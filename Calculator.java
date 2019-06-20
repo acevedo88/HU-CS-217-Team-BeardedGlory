@@ -26,7 +26,12 @@ public class Calculator {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		GUI();
+		new Calculator();
+		
+		
+		//GUI();
+		
+		
 	}
 	
 	private static Double calculate() {
@@ -42,7 +47,7 @@ public class Calculator {
 	 * creates an instance of the inner class GUI and
 	 * displays it 
 	 */
-	private static void GUI() {
+	private Calculator() {
 		
 		
 		
@@ -68,6 +73,7 @@ public class Calculator {
 		JPanel operationPanel = new JPanel();
 		
 		JButton equals = new JButton();
+		equals.addActionListener(new equalButtonListener());
 		
 		//Display panel displays
 		mainPanel.add(displayPanel, BorderLayout.NORTH);
@@ -110,7 +116,7 @@ public class Calculator {
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
 			
-			calculate();
+			numberPanel.setText(calculate().toString());
 			
 		}
 		
