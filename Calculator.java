@@ -1,12 +1,15 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+
 
 
 /*
@@ -60,6 +63,8 @@ public class Calculator {
 		mainPanel.setPreferredSize(new Dimension(800, 600));
 		mainPanel.setLayout(new BorderLayout());
 		
+		final int DIMR = 4;
+		final int DIMC = 3;
 		
 		JPanel displayPanel = new JPanel();
 		
@@ -69,7 +74,20 @@ public class Calculator {
 		
 		JPanel operationPanel = new JPanel();
 		
+		//Creates the Number JButtons
+		JButton numberButtons[][] = new JButton[DIMR][DIMC];
+		//ButtonListener buttonListener = new ButtonListener();
+		for (int row = 0; row < DIMR; row++) {
+			for (int col = 0; col < DIMC; col++) {
+				numberButtons[row][col] = new JButton();
+				//gameGrid[row][col].addActionListener(buttonListener);
+				numberButtons[row][col].setPreferredSize(new Dimension(128,128));
+			}
+		}
+		
+		JButton operands = new JButton();
 		JButton equals = new JButton();
+		equals.setPreferredSize(new Dimension(140,90));
 		equals.addActionListener(new equalButtonListener());
 		
 		//Display panel displays
@@ -80,21 +98,37 @@ public class Calculator {
 		displayPanel.add(numberPanel);
 		numberPanel.setEditable(false);
 		
-		
-		
 		//Button panel displays
 		mainPanel.add(inputPanel, BorderLayout.CENTER);
 		inputPanel.setBorder(BorderFactory.createTitledBorder(""));
 		
+		//Creates number panel and buttons
 		inputPanel.add(buttonPanel);
 		buttonPanel.setPreferredSize(new Dimension(620,495));
 		buttonPanel.setBorder(BorderFactory.createTitledBorder(""));
+		buttonPanel.setLayout(new GridLayout(DIMR,DIMC));
+		for (int row = 0; row < DIMR; row++) {
+			for (int col = 0; col < DIMC; col++) {
+				buttonPanel.add(numberButtons[row][col]);
+			}
+		}
 		
+		
+		//Creates the operations panel and the operands
 		inputPanel.add(operationPanel,BorderLayout.EAST);
+		//operationPanel.setLayout(new BoxLayout(operationPanel, BoxLayout.PAGE_AXIS));
 		operationPanel.setBorder(BorderFactory.createTitledBorder(""));
 		operationPanel.setPreferredSize(new Dimension(150,495));
+		for (int amount = 0; amount < 4; amount++) {
+			
+			operands = new JButton();
+			operands.setPreferredSize(new Dimension(140,90));
+			operationPanel.add(operands);
+			
+		}
 		
 		operationPanel.add(equals);
+		
 		
 		frame.pack();
 		frame.setVisible(true);
