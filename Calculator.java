@@ -197,7 +197,15 @@ public class Calculator {
 		
 		public void actionPerformed(ActionEvent arg0) {
 			// Sets results panel to calculated numbers.
-			numbers.push(Double.parseDouble(numberPanel.getText()));
+			if (numberPanel.getText().length()>1) 
+			{
+				numbers.push(Double.parseDouble(numberPanel.getText().substring(1, numberPanel.getText().length())));
+			}
+			if (numberPanel.getText().length()==1) 
+			{
+				numbers.push(Double.parseDouble(numberPanel.getText()));
+			}
+			
 			numberPanel.setText(""+calculate());
 			
 		}
@@ -217,15 +225,28 @@ public class Calculator {
 	private class operandButtonListener implements ActionListener {
 		private String operation;
 		
-		public operandButtonListener(String operation) 
-		{
+		public operandButtonListener(String operation) {
 			this.operation = operation;
 		}
 		
 		public void actionPerformed(ActionEvent arg0) {
 			// Sets results panel to calculated numbers.
 			
-			numbers.push(Double.parseDouble(numberPanel.getText()));
+			//substring manipulation goes here
+			
+			if (numberPanel.getText().length()>1) {
+			numbers.push(Double.parseDouble(numberPanel.getText().substring(1, numberPanel.getText().length())));
+			}
+			if (numberPanel.getText().length()==1) 
+			{
+				numbers.push(Double.parseDouble(numberPanel.getText()));
+				
+			}
+		
+			
+					
+			//numbers.push(Double.parseDouble(numberPanel.getText()));
+			//numbers.push(numToPush);
 			operators.push(operation);
 			numberPanel.setText(operation+"");
 					
