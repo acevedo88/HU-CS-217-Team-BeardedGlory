@@ -2,6 +2,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Stack;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,14 +20,15 @@ import javax.swing.JTextArea;
  * 
  */
 public class Calculator {
-
+	
 	static JTextArea numberPanel;
 	
 	//fields
+	private Stack<String> operators = new Stack<String>();
+	private Stack<Double> numbers = new Stack<Double>();
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 		new Calculator();
 		
 		
@@ -70,6 +73,8 @@ public class Calculator {
 		JPanel operationPanel = new JPanel();
 		
 		JButton equals = new JButton();
+		equals.setText("=");
+		equals.setSize(300, 500);
 		equals.addActionListener(new equalButtonListener());
 		
 		//Display panel displays
@@ -102,14 +107,11 @@ public class Calculator {
 	} // end startGUI
 	
 	
-	
+	// Equals button event handler.
 	private class equalButtonListener implements ActionListener {
-
-		/* (non-Javadoc)
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
+		
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Auto-generated method stub
+			// Sets results panel to calculated numbers.
 			
 			numberPanel.setText(calculate().toString());
 			
