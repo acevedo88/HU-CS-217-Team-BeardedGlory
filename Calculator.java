@@ -85,6 +85,7 @@ public class Calculator {
 		numberButtons[3][2].addActionListener(new decimal_Number_Event("."));
 		
 		//operand buttons
+<<<<<<< HEAD
 
 		JButton clear = new operandButton("CE");
 		clear.setPreferredSize(new Dimension(140,72));
@@ -93,11 +94,20 @@ public class Calculator {
 		
 		JButton addition = new operandButton("+");
 		addition.setPreferredSize(new Dimension(140,72));
+=======
+		
+		JButton addition = new operandButton("+");
+		addition.setPreferredSize(new Dimension(140,90));
+>>>>>>> branch 'master' of https://github.com/acevedo88/HU-CS-271-Team-BeardedGlory
 		addition.setSize(300, 500);
 		addition.addActionListener(new operandButtonListener("+"));
 		
 		JButton subtraction = new operandButton("-");
+<<<<<<< HEAD
 		subtraction.setPreferredSize(new Dimension(140,72));
+=======
+		subtraction.setPreferredSize(new Dimension(140,90));
+>>>>>>> branch 'master' of https://github.com/acevedo88/HU-CS-271-Team-BeardedGlory
 		subtraction.setSize(300, 500);
 		subtraction.addActionListener(new operandButtonListener("-"));
 		
@@ -108,7 +118,11 @@ public class Calculator {
 		multiplication.addActionListener(new operandButtonListener("*"));
 		
 		JButton division = new operandButton("/");
+<<<<<<< HEAD
 		division.setPreferredSize(new Dimension(140,72));
+=======
+		division.setPreferredSize(new Dimension(140,90));
+>>>>>>> branch 'master' of https://github.com/acevedo88/HU-CS-271-Team-BeardedGlory
 		division.setText("/");
 		division.setSize(300, 500);
 		division.addActionListener(new operandButtonListener("/"));
