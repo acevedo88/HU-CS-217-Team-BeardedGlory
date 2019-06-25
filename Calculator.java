@@ -2,6 +2,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Stack;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,14 +20,15 @@ import javax.swing.JTextArea;
  * 
  */
 public class Calculator {
-
+	
 	static JTextArea numberPanel;
 	
 	//fields
+	private Stack<String> operators = new Stack<String>();
+	private Stack<Double> numbers = new Stack<Double>();
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 		new Calculator();
 		
 		
