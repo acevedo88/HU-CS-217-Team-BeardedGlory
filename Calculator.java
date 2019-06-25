@@ -117,5 +117,32 @@ public class Calculator {
 		
 	}
 	
+	private class button_Number extends JButton {
+		
+		public button_Number () {
+			// Empty Constructor
+		}
+		
+	}
+	
+	private class button_Number_Event implements ActionListener {
+
+		/* (non-Javadoc)
+		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+		 */
+		
+		private String buttonText;
+		
+		public button_Number_Event (String buttonText) {
+			this.buttonText = buttonText;
+		}
+		
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
 
 }
