@@ -30,22 +30,13 @@ public class Calculator {
 	//fields
 	private Stack<String> operators = new Stack<String>();
 	private Stack<Double> numbers = new Stack<Double>();
+	private double resultObtained = 0;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new Calculator();
-		
-		
-		//GUI();
-		
-		
 	}
 	
-	private static Double calculate() {
-		
-		
-		return (double) 0;
-	}
 	
 	/**
 	 * GUI creates a new JFrame object, 
@@ -53,8 +44,6 @@ public class Calculator {
 	 * displays it 
 	 */
 	private Calculator() {
-		
-		
 		
 		// new JFrame with exit option
 		JFrame frame = new JFrame("Calculator");
@@ -96,26 +85,29 @@ public class Calculator {
 		numberButtons[3][2].addActionListener(new decimal_Number_Event("."));
 		
 		//operand buttons
-		JButton addition = new JButton();
+		
+		JButton addition = new operandButton("+");
 		addition.setPreferredSize(new Dimension(140,90));
-		addition.setText("+");
 		addition.setSize(300, 500);
-		//addition.addActionListener(new equalButtonListener());
-		JButton subtraction = new JButton();
+		addition.addActionListener(new operandButtonListener("+"));
+		
+		JButton subtraction = new operandButton("-");
 		subtraction.setPreferredSize(new Dimension(140,90));
-		subtraction.setText("-");
 		subtraction.setSize(300, 500);
-		//subtraction.addActionListener(new equalButtonListener());
-		JButton multiplication = new JButton();
+		subtraction.addActionListener(new operandButtonListener("-"));
+		
+		JButton multiplication = new operandButton("*");
 		multiplication.setPreferredSize(new Dimension(140,90));
 		multiplication.setText("x");
 		multiplication.setSize(300, 500);
-		//multiplication.addActionListener(new equalButtonListener());
-		JButton division = new JButton();
+		multiplication.addActionListener(new operandButtonListener("*"));
+		
+		JButton division = new operandButton("/");
 		division.setPreferredSize(new Dimension(140,90));
 		division.setText("/");
 		division.setSize(300, 500);
-		//division.addActionListener(new equalButtonListener());
+		division.addActionListener(new operandButtonListener("/"));
+		
 		JButton equals = new JButton();
 		equals.setPreferredSize(new Dimension(140,90));
 		equals.setText("=");
@@ -164,14 +156,79 @@ public class Calculator {
 		
 	} // end startGUI
 	
+	private double calculate() 
+	{
+		
+		
+		while (numbers.isEmpty() == false) 
+		{
+			double tmp1 = numbers.pop();
+			double tmp2 = numbers.pop();
+			String operation = operators.pop();
+			//loop pablo created here
+			
+			if(operation == "+")
+			{
+				resultObtained = resultObtained + (tmp1+tmp2);
+			}
+			
+			else if(operation == "-")
+			{
+				resultObtained = resultObtained + (tmp1-tmp2);
+			}
+			
+			else if(operation == "*")
+			{
+				resultObtained = resultObtained + (tmp1*tmp2);
+			}
+			
+			else if(operation == "/")
+			{
+				resultObtained = resultObtained + (tmp1/tmp2);
+			}
+			
+		}	
+		
+		return resultObtained;
+	}
 	
 	// Equals button event handler.
 	private class equalButtonListener implements ActionListener {
 		
 		public void actionPerformed(ActionEvent arg0) {
 			// Sets results panel to calculated numbers.
+			numbers.push(Double.parseDouble(numberPanel.getText()));
+			numberPanel.setText(""+calculate());
 			
-			numberPanel.setText(calculate().toString());
+		}
+		
+	}
+	
+	
+	private class operandButton extends JButton {
+		public operandButton (String operation) {
+			
+			this.setText(operation);
+		}
+		
+	}
+	
+	
+	private class operandButtonListener implements ActionListener {
+		private String operation;
+		
+		public operandButtonListener(String operation) 
+		{
+			this.operation = operation;
+		}
+		
+		public void actionPerformed(ActionEvent arg0) {
+			// Sets results panel to calculated numbers.
+			
+			numbers.push(Double.parseDouble(numberPanel.getText()));
+			operators.push(operation);
+			numberPanel.setText(operation+"");
+					
 			
 		}
 		
