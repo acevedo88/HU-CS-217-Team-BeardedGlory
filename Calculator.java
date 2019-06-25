@@ -3,6 +3,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Stack;
+
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -21,14 +23,15 @@ import javax.swing.JTextArea;
  * 
  */
 public class Calculator {
-
+	
 	static JTextArea numberPanel;
 	
 	//fields
+	private Stack<String> operators = new Stack<String>();
+	private Stack<Double> numbers = new Stack<Double>();
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 		new Calculator();
 		
 		
@@ -88,6 +91,8 @@ public class Calculator {
 		JButton operands = new JButton();
 		JButton equals = new JButton();
 		equals.setPreferredSize(new Dimension(140,90));
+		equals.setText("=");
+		equals.setSize(300, 500);
 		equals.addActionListener(new equalButtonListener());
 		
 		//Display panel displays
@@ -136,16 +141,40 @@ public class Calculator {
 	} // end startGUI
 	
 	
-	
+	// Equals button event handler.
 	private class equalButtonListener implements ActionListener {
+		
+		public void actionPerformed(ActionEvent arg0) {
+			// Sets results panel to calculated numbers.
+			
+			numberPanel.setText(calculate().toString());
+			
+		}
+		
+	}
+	
+	private class button_Number extends JButton {
+		
+		public button_Number () {
+			// Empty Constructor
+		}
+		
+	}
+	
+	private class button_Number_Event implements ActionListener {
 
 		/* (non-Javadoc)
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
+		
+		private String buttonText;
+		
+		public button_Number_Event (String buttonText) {
+			this.buttonText = buttonText;
+		}
+		
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
-			
-			numberPanel.setText(calculate().toString());
 			
 		}
 		
