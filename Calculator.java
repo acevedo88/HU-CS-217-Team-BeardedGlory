@@ -96,28 +96,32 @@ public class Calculator {
 		numberButtons[3][2].addActionListener(new decimal_Number_Event("."));
 		
 		//operand buttons
+		JButton clear = new JButton();
+		clear.setPreferredSize(new Dimension(140,72));
+		clear.setText("CE");
+		clear.setSize(300, 500);
 		JButton addition = new JButton();
-		addition.setPreferredSize(new Dimension(140,90));
+		addition.setPreferredSize(new Dimension(140,72));
 		addition.setText("+");
 		addition.setSize(300, 500);
 		//addition.addActionListener(new equalButtonListener());
 		JButton subtraction = new JButton();
-		subtraction.setPreferredSize(new Dimension(140,90));
+		subtraction.setPreferredSize(new Dimension(140,72));
 		subtraction.setText("-");
 		subtraction.setSize(300, 500);
 		//subtraction.addActionListener(new equalButtonListener());
 		JButton multiplication = new JButton();
-		multiplication.setPreferredSize(new Dimension(140,90));
+		multiplication.setPreferredSize(new Dimension(140,72));
 		multiplication.setText("x");
 		multiplication.setSize(300, 500);
 		//multiplication.addActionListener(new equalButtonListener());
 		JButton division = new JButton();
-		division.setPreferredSize(new Dimension(140,90));
+		division.setPreferredSize(new Dimension(140,72));
 		division.setText("/");
 		division.setSize(300, 500);
 		//division.addActionListener(new equalButtonListener());
 		JButton equals = new JButton();
-		equals.setPreferredSize(new Dimension(140,90));
+		equals.setPreferredSize(new Dimension(140,72));
 		equals.setText("=");
 		equals.setSize(300, 500);
 		equals.addActionListener(new equalButtonListener());
@@ -152,6 +156,7 @@ public class Calculator {
 		operationPanel.setBorder(BorderFactory.createTitledBorder(""));
 		operationPanel.setPreferredSize(new Dimension(150,495));
 		
+		operationPanel.add(clear);
 		operationPanel.add(addition);
 		operationPanel.add(subtraction);
 		operationPanel.add(multiplication);
