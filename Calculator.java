@@ -25,6 +25,7 @@ import javax.swing.JTextArea;
 public class Calculator {
 	
 	static JTextArea numberPanel;
+	protected boolean decimalEnable = true;
 	
 	//fields
 	private Stack<String> operators = new Stack<String>();
@@ -80,13 +81,20 @@ public class Calculator {
 		//Creates the Number JButtons
 		JButton numberButtons[][] = new JButton[DIMR][DIMC];
 		//ButtonListener buttonListener = new ButtonListener();
-		for (int row = 0; row < DIMR; row++) {
+		for (int row = 0; row < DIMR-1; row++) {
 			for (int col = 0; col < DIMC; col++) {
-				numberButtons[row][col] = new JButton();
-				//gameGrid[row][col].addActionListener(buttonListener);
+				numberButtons[row][col] = new button_Number(""+((row*3)+(col+1)));
+				numberButtons[row][col].addActionListener(new button_Number_Event(""+((row*3)+(col+1))));
 				numberButtons[row][col].setPreferredSize(new Dimension(128,128));
 			}
 		}
+		numberButtons[3][0] = new button_Number("+/-");
+		numberButtons[3][0].addActionListener(new plusMinus_Number_Event("+/-"));
+		numberButtons[3][1] = new button_Number("0");
+		numberButtons[3][1].addActionListener(new button_Number_Event("0"));
+		numberButtons[3][2] = new button_Number(".");
+		numberButtons[3][2].addActionListener(new decimal_Number_Event("."));
+		
 		
 		JButton operands = new JButton();
 		JButton equals = new JButton();
@@ -155,8 +163,9 @@ public class Calculator {
 	
 	private class button_Number extends JButton {
 		
-		public button_Number () {
+		public button_Number (String digits) {
 			// Empty Constructor
+			this.setText(digits);
 		}
 		
 	}
@@ -175,10 +184,53 @@ public class Calculator {
 		
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
+			numberPanel.setText(numberPanel.getText()+buttonText);
 			
 		}
 		
 	}
 	
+	private class plusMinus_Number_Event implements ActionListener {
+
+		/* (non-Javadoc)
+		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+		 */
+		
+		private String buttonText;
+		
+		public plusMinus_Number_Event (String buttonText) {
+			this.buttonText = buttonText;
+		}
+		
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			//numberPanel.setText(numberPanel.getText()+buttonText);
+			
+		}
+		
+	}
+	private class decimal_Number_Event implements ActionListener {
+
+		/* (non-Javadoc)
+		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+		 */
+		
+		private String buttonText;
+		
+		public decimal_Number_Event (String buttonText) {
+			this.buttonText = buttonText;
+		}
+		
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			//numberPanel.setText(numberPanel.getText()+buttonText);
+			if (decimalEnable == true) {
+				numberPanel.setText(numberPanel.getText()+buttonText);
+				decimalEnable = false;
+			}
+				
+		}
+		
+	}
 
 }
