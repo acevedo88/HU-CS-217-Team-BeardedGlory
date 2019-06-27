@@ -2,6 +2,7 @@
  * @author Team BeardedGlory
  * 
  */
+/*
 public class Calculate extends Calculator{
 	
 	private int[] numberSet;
@@ -46,3 +47,4 @@ public class Calculate extends Calculator{
 	}
 
 }
+*/

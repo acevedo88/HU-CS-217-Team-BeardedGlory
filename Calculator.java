@@ -92,31 +92,29 @@ public class Calculator {
 		
 
 		JButton addition = new operandButton("+");
-		addition.setPreferredSize(new Dimension(140,90));
+		addition.setPreferredSize(new Dimension(140,75));
 		addition.setSize(300, 500);
 		addition.addActionListener(new operandButtonListener("+"));
 		
 		JButton subtraction = new operandButton("-");
-		subtraction.setPreferredSize(new Dimension(140,72));
-		subtraction.setPreferredSize(new Dimension(140,90));
+		subtraction.setPreferredSize(new Dimension(140,75));
 		subtraction.setSize(300, 500);
 		subtraction.addActionListener(new operandButtonListener("-"));
 		
 		JButton multiplication = new operandButton("*");
-		multiplication.setPreferredSize(new Dimension(140,90));
+		multiplication.setPreferredSize(new Dimension(140,75));
 		multiplication.setText("x");
 		multiplication.setSize(300, 500);
 		multiplication.addActionListener(new operandButtonListener("*"));
 		
 		JButton division = new operandButton("/");
-		division.setPreferredSize(new Dimension(140,72));
-		division.setPreferredSize(new Dimension(140,90));
+		division.setPreferredSize(new Dimension(140,75));
 		division.setText("/");
 		division.setSize(300, 500);
 		division.addActionListener(new operandButtonListener("/"));
 		
 		JButton equals = new JButton();
-		equals.setPreferredSize(new Dimension(140,72));
+		equals.setPreferredSize(new Dimension(140,75));
 		equals.setText("=");
 		equals.setSize(300, 500);
 		equals.addActionListener(new equalButtonListener());
