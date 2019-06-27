@@ -177,10 +177,11 @@ public class Calculator {
 			{
 				resultObtained = resultObtained + (tmp1+tmp2);
 			}
-			
+		
+			//Subtraction is not associative, so order matters. tmp2 - tmp1 instead of tmp1 - tmp2, due to tmp2 being last value popped.
 			else if(operation == "-")
 			{
-				resultObtained = resultObtained + (tmp1-tmp2);
+				resultObtained = resultObtained + (tmp2-tmp1);
 			}
 			
 			else if(operation == "*")
