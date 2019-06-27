@@ -182,7 +182,7 @@ public class Calculator {
 			
 			else if(operation == "-")
 			{
-				resultObtained = resultObtained + (tmp1-tmp2);
+				resultObtained = resultObtained + (tmp2-tmp1);
 			}
 			
 			else if(operation == "*")
