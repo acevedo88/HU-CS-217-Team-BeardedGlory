@@ -306,7 +306,11 @@ public class Calculator {
 		
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
-			//numberPanel.setText(numberPanel.getText()+buttonText);
+			if (numberPanel.getText().startsWith("-")) {
+				numberPanel.setText(numberPanel.getText().substring(1));
+			} else {
+				numberPanel.setText("-" + numberPanel.getText());
+			}
 			
 		}
 		
